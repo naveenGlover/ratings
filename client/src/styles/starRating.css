@@ -1,0 +1,16 @@
+.satr-rating-product-div {
+    margin: 10px;
+}
+
+.star-rating-product {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+}
+
+#star-rating-errorMsg {
+    display: none;
+    color: #DC2626;
+    font-size: 12px;
+    font-weight: 600;
+}

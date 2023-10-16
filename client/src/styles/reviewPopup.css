@@ -1,0 +1,133 @@
+.popup-left {
+    width: 40%;
+    border-right: 1px solid #A1A1AA
+}
+
+.popup-image-div {
+    width: 100%;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 10px 0 0 0;
+}
+
+.popup-image-div img {
+    height: 100%;
+}
+
+.popup-image-prev-div {
+    height: 100px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #F4F4F5;
+    border-radius: 10px;
+}
+
+.radio-label {
+    width: 70px;
+    height: 70px;
+    position: relative;
+}
+
+.radio-label img {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.radio-input {
+    visibility: hidden;
+    position: absolute;
+}
+
+.popup-right {
+    width: 60%;
+    text-align: left;
+    padding: 10px;
+    position: relative;
+}
+
+.popup-review-user-div {
+    width: 200px;
+    line-height: normal;
+    margin: 5px;
+}
+
+.popup-review-ratings-div {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    margin: 15px;
+    width: 200px;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f3f3f3;
+    border-radius: 40px;
+    height: 35px;
+}
+
+.popup-review-ratings {
+    width: 90px;
+}
+
+.popup-review-feedback-div {
+    line-height: normal;
+    margin: 20px 10px;
+    font-size: 15px;
+    font-weight: 400;
+    color: black;
+}
+
+.popup-summary-questions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.summary-quesion-rating-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid gainsboro;
+    padding: 5px 10px;
+    border-radius: 30px;
+    line-height: normal;
+    margin: 10px;
+}
+
+.summary-quesion-rating-div p {
+    text-transform: capitalize;
+    font-size: 15px;
+
+}
+
+.summary-quesion-rating-dots {
+    display: flex;
+    align-items: center;
+}
+
+.filled-dot,
+.empty-dot {
+    border: .5px solid #c9c9c9;
+    border-radius: 50%;
+    margin: 1px;
+}
+
+.popup-likes-div {
+    display: flex;
+    float: right;
+    width: 100%;
+    max-width: 230px;
+    font-size: 15px;
+    color: #737373;
+}
+
+.popup-likes {
+    display: flex;
+    width: 75px;
+    justify-content: space-between;
+    margin-left: 20px;
+    font-size: 14px;
+    align-items: center;
+}

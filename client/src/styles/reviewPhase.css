@@ -1,0 +1,393 @@
+.review-phase {
+    width: 70%;
+    max-width: 1000px;
+    background-color: #F3F4F6;
+    margin: auto;
+}
+
+.review-heading-phase {
+    padding: 10px;
+}
+
+.total-avgReview-container {
+    width: 30%;
+}
+
+.total-avgReview-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.total-avgReview-rating-div {
+    width: 130px;
+}
+
+.reviews-head-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.star {
+    zoom: 1.5;
+    color: #FACC15;
+}
+
+.star-rating {
+    display: flex;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.star-rating-div {
+    display: flex;
+    align-items: center;
+}
+
+
+.vertical-line {
+    height: 150px;
+    border-right: 1px solid black;
+    margin: auto 0;
+}
+
+.review-questions-summary {
+    width: 65%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.filter-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.filter-div {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    padding: 10px;
+}
+
+.filter-text-input {
+    width: 150px;
+    height: 35px;
+    border-radius: 8px;
+    border: 1px solid #27272A;
+    background: transparent;
+}
+
+.dropdown-summary {
+    width: 50px;
+    height: 35px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.filter-types {
+    width: 50px;
+    height: 35px;
+    border-radius: 8px;
+}
+
+.review-btn {
+    width: 100px;
+    height: 35px;
+    background-color: #262626;
+    border-radius: 8px;
+    color: white;
+    margin: 10px;
+}
+
+#form {
+    padding: 10px;
+    display: none;
+}
+
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-rating {
+    width: 35%;
+}
+
+.form-gorup-right {
+    width: 60%;
+    padding: 0 10px;
+}
+
+.form-gorup-right input {
+    width: 100%;
+}
+
+#feedback {
+    width: 97%;
+    height: 140px;
+    resize: none;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.image-input-label {
+    border: 1px solid black;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+    gap: 10px;
+
+    & svg {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+.image-preview {
+    position: relative;
+}
+
+.remove-btn {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background: black;
+    color: white;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+#image-preview-container-error {
+    display: none;
+    color: #DC2626;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.summary-questions-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-questions-container p {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.summary-question-radio-div {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 5px;
+}
+
+.radio-li-item {
+    display: inline;
+}
+
+.radio-li-item input {
+    visibility: hidden;
+}
+
+.radio-svg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+
+input[class="super-happy"]:hover+svg,
+input[class="super-happy"]:checked+svg,
+input[class="super-happy"]:focus+svg {
+    fill: rgb(0, 109, 217);
+}
+
+input[class="happy"]:hover+svg,
+input[class="happy"]:checked+svg,
+input[class="happy"]:focus+svg {
+    fill: rgb(0, 204, 79);
+}
+
+input[class="neutral"]:hover+svg,
+input[class="neutral"]:checked+svg,
+input[class="neutral"]:focus+svg {
+    fill: rgb(232, 214, 0);
+}
+
+input[class="sad"]:hover+svg,
+input[class="sad"]:checked+svg,
+input[class="sad"]:focus+svg {
+    fill: rgb(229, 132, 0);
+}
+
+input[class="super-sad"]:hover+svg,
+input[class="super-sad"]:checked+svg,
+input[class="super-sad"]:focus+svg {
+    fill: rgb(239, 42, 16);
+}
+
+.formSubmit-btn {
+    width: 150px;
+    height: 35px;
+    border: none;
+    background-color: black;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 10px;
+}
+
+.form-gorup-right label {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.form-gorup-right input {
+    border-radius: 5px;
+    height: 20px;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.reviews {
+    width: -webkit-fill-available;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    padding: 5px;
+}
+
+.review-container {
+    width: -webkit-fill-available;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+    padding: 5px;
+    margin: 5px;
+    position: relative;
+    padding-bottom: 35px;
+}
+
+.review-image-div {
+    height: 250px;
+}
+
+.review-image-div img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.review-user-div {
+    margin: 10px 0px;
+}
+
+.review-user {
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.review-user-date {
+    font-size: 14px;
+    font-weight: 600;
+    color: #737373;
+}
+
+.review-ratings-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    background-color: #E4E4E7;
+    padding: 3px 10px;
+    margin: 5px 0px;
+}
+
+.review-ratings-div p {
+    font-size: 14px;
+    font-weight: 500;
+    color: #78716C;
+}
+
+.review-ratings {
+    width: 50%;
+    max-width: 100px;
+}
+
+.review-feedback-div {
+    height: auto;
+}
+
+.review-feedback {
+    font-size: 14px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    line-height: 1.5;
+}
+
+.review-likes-div {
+    position: absolute;
+    bottom: 0px;
+    font-size: 14px;
+    color: #737373;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: inherit;
+}
+
+.review-likes {
+    width: 75px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup {
+    display: flex;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-bg {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 998;
+}
+
+.popup-content {
+    height: fit-content;
+    width: 800px;
+    line-height: 3;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-size: 18px;
+    z-index: 10000;
+    display: flex;
+}

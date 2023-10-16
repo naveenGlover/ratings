@@ -1,0 +1,27 @@
+/* src/components/ImageUploader.css */
+
+.image-uploader {
+    text-align: center;
+}
+
+.image-preview-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    height: auto;
+    width: 100%;
+}
+
+.image-preview {
+    margin: 10px;
+    text-align: center;
+
+    & img {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.hide-file-input-text {
+    display: none;
+}
