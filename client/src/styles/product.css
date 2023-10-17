@@ -30,6 +30,19 @@
 
 .product-rating-container {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.product-rating-div {
+    width: 55%;
+}
+
+.product-rating-container p {
+    width: 40%;
+    font-size: 13px;
+    color: #1c1c28;
+    font-weight: 500;
 }
 
 .product-price {

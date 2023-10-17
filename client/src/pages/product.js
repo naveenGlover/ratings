@@ -25,6 +25,10 @@ export default function Product() {
             product = product.response;
             setProduct(product);
             console.log(product);
+            let productReviewArray = product.productReviews;
+            productReviewArray.sort((a, b) => {
+                return new Date(b.date).getTime() - new Date(a.date).getTime();
+            })
         } catch (error) {
             console.log(error);
         }
@@ -43,8 +47,10 @@ export default function Product() {
                     <div className="product-detail">
                         <h1 className="product-name">{product.productDetail.title}</h1>
                         <div className="product-rating-container">
-                            <OverallStarRating rating={product.productDetail.avgRating} />
-                            <p>4.7(27 reviews)</p>
+                            <div className="product-rating-div">
+                                <OverallStarRating rating={product.productDetail.avgRating} />
+                            </div>
+                            <p>{(product.productDetail.avgRating).toFixed(1)}({product.productDetail.totalReviews} reviews)</p>
                         </div>
                         <p className="product-price">$  {product.productDetail.price}  {product.productDetail.currencyCode}</p>
                         <p>Quantity</p>

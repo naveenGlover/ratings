@@ -54,12 +54,25 @@ button {
     height: 150px;
     border-right: 1px solid black;
     margin: auto 0;
+    display: none;
 }
 
 .review-questions-summary {
     width: 65%;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
+    display: none;
+}
+
+.CircularProgressbar-path {
+    stroke: black !important;
+}
+
+.CircularProgressbar-text {
+    font-size: 22px !important;
+    font-weight: bold;
+    fill: black !important;
 }
 
 .filter-container {
@@ -71,8 +84,9 @@ button {
 .filter-div {
     display: flex;
     justify-content: space-between;
-    width: 45%;
+    width: 40%;
     padding: 10px;
+    min-width: 310px;
 }
 
 .filter-text-input {
@@ -91,7 +105,7 @@ button {
 }
 
 .filter-types {
-    width: 50px;
+    width: 100px;
     height: 35px;
     border-radius: 8px;
 }

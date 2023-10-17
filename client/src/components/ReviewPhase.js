@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import StarRating from './StarRating'
 import Progressbar from './Progressbar'
 import '../styles/reviewPhase.css';
@@ -9,8 +9,8 @@ import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
 import ReviewPopup from './ReviewPopup';
 
 const ReviewPhase = ({ product }) => {
-    const [likes, setLikes] = useState()
-    const [reviewPopup, setReviewPopup] = useState({ isOpen: false })
+    const [likes, setLikes] = useState([]);
+    const [reviewPopup, setReviewPopup] = useState({ isOpen: false });
     const reviewbtn = () => {
         let elem = document.getElementById('review-btn');
         let form = document.getElementById('form');
@@ -45,17 +45,17 @@ const ReviewPhase = ({ product }) => {
                 <div className="reviews-head-container">
                     <div className="total-avgReview-container">
                         <div className="total-avgReview-div">
-                            <h1 className="total-avgReview">4.7</h1>
+                            <h1 className="total-avgReview">{(product.productDetail.avgRating).toFixed(1)}</h1>
                             <div className="total-avgReview-rating-div">
                                 <OverallStarRating rating={product.productDetail.avgRating} />
                             </div>
                         </div>
                         <div className="ratings-container">
-                            <div className="star-rating-div">5 <span style={{ color: "yellow" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={10} /></div>
-                            <div className="star-rating-div">4 <span style={{ color: "yellow" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={10} /></div>
-                            <div className="star-rating-div">3 <span style={{ color: "yellow" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={10} /></div>
-                            <div className="star-rating-div">2 <span style={{ color: "yellow" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={10} /></div>
-                            <div className="star-rating-div">1 <span style={{ color: "yellow" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={10} /></div>
+                            <div className="star-rating-div">5 <span style={{ color: "#faad14" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={Math.round((product.productDetail.individual_reviews['5star'] / product.productDetail.totalReviews) * 100)} ratings={product.productDetail.individual_reviews['5star']} /></div>
+                            <div className="star-rating-div">4 <span style={{ color: "#faad14" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={Math.round((product.productDetail.individual_reviews['4star'] / product.productDetail.totalReviews) * 100)} ratings={product.productDetail.individual_reviews['4star']} /></div>
+                            <div className="star-rating-div">3 <span style={{ color: "#faad14" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={Math.round((product.productDetail.individual_reviews['3star'] / product.productDetail.totalReviews) * 100)} ratings={product.productDetail.individual_reviews['3star']} /></div>
+                            <div className="star-rating-div">2 <span style={{ color: "#faad14" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={Math.round((product.productDetail.individual_reviews['2star'] / product.productDetail.totalReviews) * 100)} ratings={product.productDetail.individual_reviews['2star']} /></div>
+                            <div className="star-rating-div">1 <span style={{ color: "#faad14" }}> &#9733;</span> <Progressbar bgcolor={"#3F3F46"} progress={Math.round((product.productDetail.individual_reviews['1star'] / product.productDetail.totalReviews) * 100)} ratings={product.productDetail.individual_reviews['1star']} /></div>
                         </div>
                     </div>
                     <div className="vertical-line"></div>
@@ -75,7 +75,8 @@ const ReviewPhase = ({ product }) => {
                         <option value="volvo">Sort by date</option>
                         <option value="saab">Sort by rating</option>
                         <option value="mercedes">Sort by conent</option>
-                        <option value="audi">Sort by media</option></select>
+                        <option value="audi">Sort by media</option>
+                    </select>
                 </div>
                 <div>
                     <button id='review-btn' className='review-btn' onClick={() => reviewbtn()} value='Write Review'> Write Review</button>
@@ -84,12 +85,11 @@ const ReviewPhase = ({ product }) => {
             <ReviewForm productHandle={product.productDetail.productHandle} formSubmit={reviewbtn} />
             <div className="reviews">
                 {
-                    // console.log(product.productReviews)
                     product.productReviews.map((review, index) => {
                         return (
                             <div className="review-container" key={index}>
                                 <div className="review-image-div">
-                                    <img src={(review.images.length > 0) ? review.images[0] : '/images/user.jpg'} alt="product_review" onClick={() => showPopup(review)} />
+                                    <img src={(review.images.length > 0) ? review.images[0] : '/images/image_placeholder.jpg'} alt="product_review" onClick={() => showPopup(review)} />
                                 </div>
                                 <div className="review-user-div">
                                     <p className='review-user'>

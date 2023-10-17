@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Progressbar = ({ progress }) => {
+const Progressbar = ({ progress, ratings }) => {
 
     const Parentdiv = {
         height: 5,
@@ -30,7 +30,7 @@ const Progressbar = ({ progress }) => {
                 <div style={Childdiv}>
                 </div>
             </div>
-            <span>27</span>
+            <span>{ratings}</span>
         </>
     )
 }

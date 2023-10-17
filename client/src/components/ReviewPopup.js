@@ -19,7 +19,7 @@ const ReviewPopup = ({ review, setReview }) => {
             <div className="popup-content" id="popup-content">
                 <div className="popup-left">
                     <div className="popup-image-div">
-                        <img src={showImage ? showImage : '/images/user.jpg'} alt="reviewImage" />
+                        <img src={showImage ? showImage : '/images/image_placeholder.jpg'} alt="reviewImage" />
                     </div>
                     <div className="popup-image-prev-div">
                         {(review.review.images.length) > 0 ? (review.review.images.map((image, index) => {

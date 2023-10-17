@@ -54,32 +54,58 @@ const api = (app) => {
     app.post("/api/product/review/add", async (req, res) => {
         let productReview = req.body.review;
         let domain = req.body.domain;
-        var params1 = {
+        let productHandle = productReview.productHandle;
+        var params = {
             TableName: 'Products',
-            Key: {
-                'myShopifyDomain': domain,
-                'recordType': 'review'
+            KeyConditionExpression: 'myShopifyDomain = :domain',
+            ExpressionAttributeValues: {
+                ':domain': domain
             }
         };
-        let response = await getItem(params1);
-        if (response?.Item) {
-            response = response.Item.reviews;
-            response.push(productReview);
-            console.log(response);
-            let item = {
+        let response = await queryItem(params);
+        if (response?.Items) {
+            response = response.Items;
+            let product = response[0];
+            let productReviews = response[1];
+            productReviews = productReviews.reviews;
+            let productsArray = product.products;
+            let changeArray = productsArray.filter(obj => obj.productHandle === productHandle);
+            productsArray = productsArray.filter(obj => obj.productHandle !== productHandle);
+            let changedObj = changeArray[0];
+            let totalReviews = changedObj.totalReviews;
+            let avgRating = changedObj.avgRating;
+            avgRating = (avgRating * totalReviews) + productReview.overallRating;
+            totalReviews += 1;
+            changedObj.individual_reviews[`${productReview.overallRating}star`] += 1;
+            avgRating = (avgRating / totalReviews).toFixed(3);
+            changedObj['totalReviews'] = totalReviews;
+            changedObj['avgRating'] = Number(avgRating);
+            productsArray.push(changedObj);
+            productReviews.push(productReview);
+            let productObject = {
+                myShopifyDomain: domain,
+                recordType: 'products',
+                products: productsArray
+            }
+            let productReviewsObject = {
                 myShopifyDomain: domain,
                 recordType: 'review',
-                reviews: response
+                reviews: productReviews
+            }
+            let params1 = {
+                TableName: 'Products',
+                Item: productObject
             }
             let params2 = {
                 TableName: 'Products',
-                Item: item,
+                Item: productReviewsObject
             }
-            response = await createItem(params2);
-            if (response) {
-                res.status(200).send({ reviewUploded: true });
+            let productResponse = await createItem(params1);
+            let reviewResponse = await createItem(params2);
+            if (productResponse && reviewResponse) {
+                res.status(200).send({ response: 'Review Added' });
             } else {
-                res.status(500).send({ reviewUploded: false });
+                res.status(500).send({ response: false })
             }
         } else {
             res.status(500).send({ response: false });

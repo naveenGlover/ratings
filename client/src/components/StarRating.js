@@ -4,7 +4,7 @@ import "../styles/starRating.css";
 
 const StarRating = ({ rating, rateProduct }) => {
     const colors = {
-        yellow: "#F59E0B",
+        yellow: "#FAAD14",
         grey: "#9CA3AF"
     }
     useEffect(() => {

@@ -7,10 +7,10 @@ function CircularProgressBar({ rating, type }) {
     return (
         <div style={{ textAlign: "center" }}>
             <h4>{`${type}`}</h4>
-            <div style={{ width: 100 }}>
+            <div style={{ width: 80, marginTop: 5 }}>
                 <CircularProgressbar value={rating} text={`${rating}%`} />
             </div>
         </div>
     );
 }
-export default CircularProgressBar;
+export default CircularProgressBar; 

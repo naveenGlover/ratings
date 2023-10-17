@@ -8,10 +8,13 @@
     height: 350px;
     overflow: hidden;
     border-radius: 10px 0 0 0;
+    background-color: black;
 }
 
 .popup-image-div img {
-    height: 100%;
+    width: inherit;
+    height: inherit;
+    object-fit: contain;
 }
 
 .popup-image-prev-div {
